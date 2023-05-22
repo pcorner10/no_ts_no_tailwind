@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from 'react';
+import { SexoSelect, TrabajaSelect, FumadorSelect, NivelEscolarSelect, ParentescoSelect } from '../formularios';
+
 
 export default function Encuesta2() {
   const [numFamiliares, setNumFamiliares] = useState(1);
@@ -50,10 +52,10 @@ export default function Encuesta2() {
       },
       body: JSON.stringify(form),
     });
-    
+
     const data = await response.json();
     console.log(data);
-    
+
   };
 
   return (
@@ -74,21 +76,30 @@ export default function Encuesta2() {
               <th>Integrante</th>
               <th>Sexo</th>
               <th>Edad</th>
-              {/* Resto de los encabezados */}
+              <th>Parentesco</th>
+              <th>Nivel escolar</th>
+              <th>Trabaja</th>
+              <th>Cuantas horas al día</th>
+              <th>Cuantos días a la semana</th>
+              <th>A qué se dedica</th>
+              <th>Es fumador</th>
+              <th>Hace cuanto vive en la ciudad</th>
             </tr>
           </thead>
           <tbody>
             {form.map((familiar, index) => (
               <tr key={index}>
                 <td>{index + 1}</td>
-                <td><select name="sexo" value={familiar.sexo} onChange={(e) => handleChangeCampo(index, 'sexo', e.target.value)}>
-                  <option value="">Selecciona...</option>
-                  <option value="hombre">Hombre</option>
-                  <option value="mujer">Mujer</option>
-                  <option value="prefiere no responder">Prefiere no responder</option>
-                </select></td>
+                <td><SexoSelect value={familiar.sexo} onChange={(e) => handleChange(e, index)} /></td>
                 <td><input type="number" value={familiar.edad} onChange={(e) => handleChangeCampo(index, 'edad', e.target.value)} /></td>
-                {/* Resto de los campos */}
+                <td><ParentescoSelect value={familiar.parentesco} onChange={(e) => handleChangeCampo(index, 'parentesco', e.target.value)} /></td>
+                <td><NivelEscolarSelect value={familiar.nivelEscolar} onChange={(e) => handleChangeCampo(index, 'nivelEscolar', e.target.value)} /></td>
+                <td><TrabajaSelect value={familiar.trabaja} onChange={(e) => handleChangeCampo(index, 'trabaja', e.target.value)} /></td>
+                <td><input type="number" value={familiar.horasDia} onChange={(e) => handleChangeCampo(index, 'horasDia', e.target.value)} /></td>
+                <td><input type="number" value={familiar.diasSemana} onChange={(e) => handleChangeCampo(index, 'diasSemana', e.target.value)} /></td>
+                <td><input type="text" value={familiar.dedicacion} onChange={(e) => handleChangeCampo(index, 'dedicacion', e.target.value)} /></td>
+                <td><FumadorSelect value={familiar.fumador} onChange={(e) => handleChangeCampo(index, 'fumador', e.target.value)} /></td>
+                <td><input type="text" value={familiar.tiempoCiudad} onChange={(e) => handleChangeCampo(index, 'tiempoCiudad', e.target.value)} /></td>
               </tr>
             ))}
           </tbody>

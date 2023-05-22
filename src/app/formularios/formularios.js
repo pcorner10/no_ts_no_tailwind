@@ -1,18 +1,8 @@
-// generate a dictionary with all options of formularios
-// the fields are:
-// path: the path of the page
-// title: the title of the page
-// description: the description of the page
-// there are 14 formularios in total
-// the names of the formularios beggins with primer and ends with catorce
-// the path of the formularios beggins with /formularios/ and ends with /primer
-// the title of the formularios beggins with Primer and ends with Catorce
-// the description of the formularios beggins with Primer and ends with Catorce
-//
+import React from 'react';
 
 export const formularios = [
   {
-    path: '/formularios/primerO',
+    path: '/formularios/primero',
     title: 'Primer',
     description: 'Primer formulario',
   },
@@ -22,7 +12,7 @@ export const formularios = [
     description: 'Segundo formulario',
   },
   {
-    path: '/formularios/tercerO',
+    path: '/formularios/tercero',
     title: 'Tercer',
     description: 'Tercer formulario',
   },
@@ -82,3 +72,63 @@ export const formularios = [
     description: 'Catorceavo formulario',
   }
 ];
+
+
+export const SexoSelect = ({ value, onChange }) => (
+  <select name="sexo" value={value} onChange={onChange}>
+    <option value="">Selecciona...</option>
+    <option value="hombre">Hombre</option>
+    <option value="mujer">Mujer</option>
+    <option value="prefiere no responder">Prefiere no responder</option>
+  </select>
+);
+
+export const TrabajaSelect = ({ value, onChange }) => (
+  <select name="trabaja" value={value} onChange={onChange}>
+    <option value="">Selecciona...</option>
+    <option value="si">Sí</option>
+    <option value="no">No</option>
+    <option value="prefiere no responder">Prefiere no responder</option>
+  </select>
+);
+
+export const FumadorSelect = ({ value, onChange }) => (
+  <select name="fumador" value={value} onChange={onChange}>
+    <option value="">Selecciona...</option>
+    <option value="si">Sí</option>
+    <option value="no">No</option>
+    <option value="no aplica">No aplica</option>
+  </select>
+);
+
+export const NivelEscolarSelect = ({ value, onChange }) => (
+  <select name="nivelEscolar" value={value} onChange={onChange}>
+    <option value="">Selecciona...</option>
+    <option value="noresponde">Prefiere no responder</option>
+    <option value="ninguno">Ninguno</option>
+    <option value="primaria">Primaria</option>
+    <option value="secundaria">Secundaria</option>
+    <option value="preparatoria">Preparatoria</option>
+    <option value="universidad">Universidad</option>
+    <option value="posgrado">Posgrado</option>
+  </select>
+);
+
+export const ParentescoSelect = ({ value, onChange }) => (
+  <select name="parentesco" value={value} onChange={onChange}>
+    <option value="">Selecciona...</option>
+    <option value="padre">Padre</option>
+    <option value="madre">Madre</option>
+    <option value="hijo">Hijo</option>
+    <option value="hija">Hija</option>
+    <option value="abuelo">Abuelo</option>
+    <option value="abuela">Abuela</option>
+    <option value="tio">Tío</option>
+    <option value="tia">Tía</option>
+    <option value="primo">Primo</option>
+    <option value="prima">Prima</option>
+    <option value="sobrino">Sobrino</option>
+    <option value="sobrina">Sobrina</option>
+    <option value="otro">Otro</option>
+  </select>
+);
