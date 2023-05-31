@@ -42,15 +42,7 @@ export default function Formularios() {
               {formulario.description}
             </p>
           </Link>
-
-          // send all formularies stored on Local Storage
-
-
-          
         ))}
-        <form onSubmit={handleSubmit}>
-          <button type="submit">Enviar</button>
-        </form>
       </div>
     </main >
   )

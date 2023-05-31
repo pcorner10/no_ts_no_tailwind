@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { SexoSelect, TrabajaSelect, FumadorSelect, NivelEscolarSelect, ParentescoSelect } from '../formularios';
-
+import { primerFormulario } from '../data';
 
 export default function Encuesta2() {
   const [numFamiliares, setNumFamiliares] = useState(1);
@@ -16,7 +16,7 @@ export default function Encuesta2() {
   const handleSubmitFamiliares = (e) => {
     e.preventDefault();
     setIsEditable(false);
-    setForm(Array.from({ length: numFamiliares }, () => ({ /* campos del formulario */ })));
+    setForm(Array.from({ length: numFamiliares }, () => ({ primerFormulario })));
   };
 
   const handleEdit = () => {
